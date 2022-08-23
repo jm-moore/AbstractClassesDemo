@@ -16,6 +16,7 @@ namespace ConsoleUI
 
             #region Vehicles
 
+
             /*
              * Create an abstract class called Vehicle
              * The vehicle class shall have three string properties Year, Make, and Model
@@ -30,6 +31,52 @@ namespace ConsoleUI
              * Provide the implementations for the abstract methods
              * Only in the Motorcycle class will you override the virtual drive method
             */
+            List<Vehicle> vehicles = new List<Vehicle>();
+            Car miata = new Car()
+            {
+                Year = 2012,
+                Make = "Mazda",
+                Model = "Miata",
+                HasTrunk = true,
+            };
+            //miata.DriveAbstract();
+            vehicles.Add(miata);
+
+            Motorcycle rebel = new Motorcycle()
+            {
+                Year = 2009,
+                Make = "Honda",
+                Model = "Rebel",
+                HasSideCar = false,
+            };
+            //rebel.DriveAbstract();
+            vehicles.Add(rebel);
+
+            Vehicle silverado = new Car()
+            {
+                Year = 2018,
+                Make = "Chevrolet",
+                Model = "Silverado"
+            };
+            //silverado.DriveVirtual();
+            vehicles.Add(silverado);
+
+            Vehicle xpro = new Motorcycle()
+            {
+                Year = 2015,
+                Model = "X-Pro",
+                Make = "Motor Pro"
+            };
+            //xpro.DriveVirtual();
+            vehicles.Add(xpro);
+
+            foreach (Vehicle v in vehicles)
+            {
+                Console.WriteLine($"Make: {v.Make}  Model: {v.Model}  Year: {v.Year}");
+                v.DriveAbstract();
+                v.DriveVirtual();
+                Console.WriteLine();
+            }
 
             // Create a list of Vehicle called vehicles
 
